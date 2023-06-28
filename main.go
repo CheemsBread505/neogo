@@ -12,8 +12,8 @@ func main() {
 	fmt.Println("NeoGO")
 	fmt.Println("======")
 
-	goVersion := getGoVersion()
-	fmt.Println("Go version:", goVersion)
+//	goVersion := getGoVersion()
+//	fmt.Println("Go version:", goVersion)
 
 	osName := getOperatingSystem()
 	fmt.Println("Operating System:", osName)
@@ -33,6 +33,7 @@ func main() {
 	fmt.Println("======")
 }
 
+// Functions
 func getGoVersion() string {
 	goVersionCmd := exec.Command("go", "version")
 	goVersionOutput, err := goVersionCmd.Output()
@@ -54,8 +55,13 @@ func getOperatingSystem() string {
 		}
 
 		osRelease := string(etcOSReleaseOutput)
-		if strings.Contains(osRelease, "Arch Linux") {
-			return "Arch Linux"
+		lines := strings.Split(osRelease, "\n")
+		for _, line := range lines {
+			if strings.HasPrefix(line, "PRETTY_NAME=") {
+				dist := strings.TrimPrefix(line, "PRETTY_NAME=")
+				dist = strings.Trim(dist, `"`)
+				return dist
+			}
 		}
 	}
 
