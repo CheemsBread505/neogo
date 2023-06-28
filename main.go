@@ -10,6 +10,7 @@ import (
 
 func main() {
 	fmt.Println("NeoGO")
+	fmt.Println("======")
 
 	goVersionCmd := exec.Command("go", "version")
 	goVersionOutput, err := goVersionCmd.Output()
