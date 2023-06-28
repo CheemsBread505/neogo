@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net"
 	"os"
 	"os/exec"
 	"runtime"
@@ -26,6 +27,9 @@ func main() {
 
 	shell := getShell()
 	fmt.Println("Shell:", shell)
+
+	localIP := getLocalIP()
+	fmt.Println("Local IP:", localIP)
 
 	fmt.Println("======")
 }
@@ -89,4 +93,31 @@ func getUptime() string {
 func getShell() string {
 	shell := os.Getenv("SHELL")
 	return shell
+}
+
+// Get local IP
+func getLocalIP() string {
+	interfaces, err := net.Interfaces()
+	if err != nil {
+		fmt.Println("Error retrieving network interfaces:", err)
+		os.Exit(1)
+	}
+
+	for _, iface := range interfaces {
+		if iface.Flags&net.FlagUp != 0 && iface.Flags&net.FlagLoopback == 0 {
+			addrs, err := iface.Addrs()
+			if err != nil {
+				continue
+			}
+
+			for _, addr := range addrs {
+				ipnet, ok := addr.(*net.IPNet)
+				if ok && !ipnet.IP.IsLoopback() && ipnet.IP.To4() != nil {
+					return ipnet.IP.String()
+				}
+			}
+		}
+	}
+
+	return ""
 }
