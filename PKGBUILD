@@ -8,7 +8,7 @@ license=('GPL v3.0')
 depends=('go')
 
 source=("$pkgname-$pkgver.tar.gz::https://github.com/CheemsBread505/neogo/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('v1.0.1')
+sha256sums=('b8f66e6aad6b40578daba3359e2e2bda21ddd20db03c0a16df135dbba09ff2fe')
 
 build() {
     cd "$srcdir/$pkgname-$pkgver"
