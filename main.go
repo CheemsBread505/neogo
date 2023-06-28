@@ -42,6 +42,9 @@ func main() {
 	localIP := getLocalIP()
 	fmt.Println(cyanBold+"Local IP:"+colorReset, localIP)
 
+	cpuInfo := getCPUInfo()
+	fmt.Println(cyanBold+"CPU:"+colorReset, cpuInfo)
+
 	fmt.Println(darkBold + "======" + colorReset)
 }
 
@@ -99,6 +102,26 @@ func getUptime() string {
 
 	uptime := strings.TrimSpace(string(uptimeOutput))
 	return uptime
+}
+
+func getCPUInfo() string {
+	cpuInfoCmd := exec.Command("lscpu")
+	cpuInfoOutput, err := cpuInfoCmd.Output()
+	if err != nil {
+		fmt.Println("Error retrieving CPU info:", err)
+		os.Exit(1)
+	}
+
+	cpuInfo := string(cpuInfoOutput)
+	lines := strings.Split(cpuInfo, "\n")
+	for _, line := range lines {
+		if strings.HasPrefix(line, "Model name:") {
+			cpuModel := strings.TrimSpace(strings.TrimPrefix(line, "Model name:"))
+			return cpuModel
+		}
+	}
+
+	return ""
 }
 
 func getShell() string {
