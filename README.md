@@ -1,32 +1,50 @@
 # NeoGO
-NeoGO is a command-line tool written in Go (Golang) that provides information about the operating system and Go version running on a Linux system. It is designed to be used specifically on Linux platforms and is released under the GNU General Public License v3.0 (GPL 3.0).
+
+NeoGO is a simple Go program designed for Linux systems. It provides information about the operating system, hostname, kernel version, uptime, shell, and local IP address.
 
 ## Features
 
-- Displays the installed Go version.
-- Retrieves and displays the operating system information.
-- Prints the architecture of the system.
-
-## Prerequisites
-
-- Go (Golang) must be installed on the Linux system.
+- Retrieves operating system information
+- Retrieves the hostname of the system
+- Retrieves the kernel version
+- Retrieves the system uptime
+- Retrieves the default shell
+- Retrieves the local IP address
 
 ## Usage
 
-- Clone the repository:
-    
-      git clone https://github.com/CheemsBread505/neogo.git && cd neogo
+To use NeoGO, simply run the program in your Linux terminal. The program will output the following information:
 
-- Build the executable:
+- Operating System: The name of the Linux - distribution or the operating system running on your system.
+- Hostname: The hostname of the system.
+- Kernel Version: The version of the Linux kernel.
+- Uptime: The duration for which the system has been running.
+- Shell: The default shell of the user.
+- Local IP: The local IP address of the system.
+
+## Prerequisites
+
+- Go programming language (version 1.16 or higher)
+- Linux operating system
+
+## Installation
+
+- Clone the repository:
+  
+      git clone https://github.com/CheemsBread505/NeoGO.git
+
+- Change to the project directory:
+  
+      cd neogo
+
+- Build the program:
 
       go build
 
-- Run the executable:
+## License
 
-      ./neogo
+NeoGO is licensed under the GNU General Public License v3.0. See the [LICENSE](https://github.com/CheemsBread505/neogo/blob/main/LICENSE) file for more information.
 
-## Example Output
-     NeoGO
-     Go version: go1.17
-     Operating System: archlinux
-     Architecture: amd64
+## Credits
+
+NeoGO is developed by [CheemsBread505](https://github.com/CheemsBread505) on GitHub.
