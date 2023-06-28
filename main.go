@@ -9,29 +9,40 @@ import (
 	"strings"
 )
 
+// Colors
+const (
+	cyanBold    = "\x1b[36;1;4m"
+	darkBold    = "\x1b[30;1m"
+	colorRed    = "\033[31m"
+	colorGreen  = "\033[32m"
+	colorBlue   = "\033[34m"
+	colorYellow = "\033[33m"
+	colorReset  = "\033[0m"
+)
+
 func main() {
-	fmt.Println("NeoGO")
-	fmt.Println("======")
+	fmt.Println(cyanBold + "NeoGO" + colorReset)
+	fmt.Println(darkBold + "======" + colorReset)
 
 	osName := getOperatingSystem()
-	fmt.Println("Operating System:", osName)
+	fmt.Println(cyanBold+"Operating System:"+colorReset, osName)
 
 	hostname := getHostname()
-	fmt.Println("Hostname:", hostname)
+	fmt.Println(cyanBold+"Hostname:"+colorReset, hostname)
 
 	kernelVersion := getKernelVersion()
-	fmt.Println("Kernel Version:", kernelVersion)
+	fmt.Println(cyanBold+"Kernel Version:"+colorReset, kernelVersion)
 
 	uptime := getUptime()
-	fmt.Println("Uptime:", uptime)
+	fmt.Println(cyanBold+"Uptime:"+colorReset, uptime)
 
 	shell := getShell()
-	fmt.Println("Shell:", shell)
+	fmt.Println(cyanBold+"Shell:"+colorReset, shell)
 
 	localIP := getLocalIP()
-	fmt.Println("Local IP:", localIP)
+	fmt.Println(cyanBold+"Local IP:"+colorReset, localIP)
 
-	fmt.Println("======")
+	fmt.Println(darkBold + "======" + colorReset)
 }
 
 func getOperatingSystem() string {
