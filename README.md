@@ -37,7 +37,7 @@ To use NeoGO, simply run the program in your Linux terminal. The program will ou
 
 - Build the program:
 
-      go build -o "neofetch"
+      go build -o "neogo"
 
 ## License
 
