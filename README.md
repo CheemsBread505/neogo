@@ -1,6 +1,6 @@
 # NeoGO
 
-NeoGO is a simple Go program designed for Linux systems. It provides information about the operating system, hostname, kernel version, uptime, abd shell.
+NeoGO is a simple Go program designed for Linux systems. It provides information about the operating system, hostname, kernel version, uptime, and shell.
 
 ## Features
 
