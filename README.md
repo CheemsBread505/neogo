@@ -1,6 +1,6 @@
 # NeoGO
 
-NeoGO is a simple Go program designed for Linux systems. It provides information about the operating system, hostname, kernel version, uptime, shell, and local IP address.
+NeoGO is a simple Go program designed for Linux systems. It provides information about the operating system, hostname, kernel version, uptime, and shell.
 
 ## Features
 
@@ -9,7 +9,6 @@ NeoGO is a simple Go program designed for Linux systems. It provides information
 - Retrieves the kernel version
 - Retrieves the system uptime
 - Retrieves the default shell
-- Retrieves the local IP address
 
 ## Usage
 
@@ -20,7 +19,6 @@ To use NeoGO, simply run the program in your Linux terminal. The program will ou
 - Kernel Version: The version of the Linux kernel.
 - Uptime: The duration for which the system has been running.
 - Shell: The default shell of the user.
-- Local IP: The local IP address of the system.
 
 ## Prerequisites
 
@@ -31,7 +29,7 @@ To use NeoGO, simply run the program in your Linux terminal. The program will ou
 
 - Clone the repository:
   
-      git clone https://github.com/CheemsBread505/NeoGO.git
+      git clone https://github.com/brunomiguel/neogo
 
 - Change to the project directory:
   
@@ -39,7 +37,7 @@ To use NeoGO, simply run the program in your Linux terminal. The program will ou
 
 - Build the program:
 
-      go build
+      go build -o "neogo"
 
 ## License
 
